@@ -36,6 +36,7 @@ namespace Calculator.WebAPI.Controllers
                 var subtraction = fist - second;
                 return Ok(subtraction.ToString());
             }
+
             return BadRequest("Invalid input");
         }
         [HttpGet("mutiplication/{firstNumber}/{secondNumber}")]
