@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "63d3f1d1-ac5b-41ac-8058-45374334c64e": {
+      "ProjectGuid": "63d3f1d1-ac5b-41ac-8058-45374334c64e",
+      "DisplayName": "MetoringCsharp",
+      "ColorIndex": 0
+    },
+    "a86dd08a-d8b6-4023-be37-acd0eb2ba7d7": {
+      "ProjectGuid": "a86dd08a-d8b6-4023-be37-acd0eb2ba7d7",
+      "DisplayName": "Calculator.WebAPI",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
