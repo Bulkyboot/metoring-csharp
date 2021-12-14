@@ -10,7 +10,12 @@
       "ProjectGuid": "a86dd08a-d8b6-4023-be37-acd0eb2ba7d7",
       "DisplayName": "Calculator.WebAPI",
       "ColorIndex": 1
+    },
+    "336f922c-3d3e-467b-88dc-f5172b114b86": {
+      "ProjectGuid": "336f922c-3d3e-467b-88dc-f5172b114b86",
+      "DisplayName": "RestWithASPNET5",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }
