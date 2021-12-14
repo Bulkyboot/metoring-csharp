@@ -5,81 +5,83 @@ namespace Calculator.WebAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CalculertorController : ControllerBase
+    public class CalculatorController : ControllerBase
     {
 
-        private readonly ILogger<CalculertorController> _logger;
+        private readonly ILogger<CalculatorController> _logger;
 
-        public CalculertorController(ILogger<CalculertorController> logger)
+        public CalculatorController(ILogger<CalculatorController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public ActionResult Sum( string fistNumber, string secondNumber)
+        [HttpGet("sum/{firstNumber}/{secondNumber}")]
+        public IActionResult Sum(string firstNumber, string secondNumber)
         {
-            if (IsNumeric(fistNumber) && IsNumeric(secondNumber)) 
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                decimal fist = ConvertToDouble(fistNumber);
+                decimal first = ConvertToDouble(firstNumber);
                 decimal second = ConvertToDouble(secondNumber);
-                var sum = fist + second;
+                var sum = first + second;
                 return Ok(sum.ToString());
             }
             return BadRequest("Invalid input");
         }
-        public ActionResult subtraction(string fistNumber, string secondNumber) {
-            if (IsNumeric(fistNumber) && IsNumeric(secondNumber))
+        [HttpGet("subtraction/{firstNumber}/{secondNumber}")]
+        public IActionResult Subtraction(string firstNumber, string secondNumber) {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                decimal fist = ConvertToDouble(fistNumber);
+                decimal fist = ConvertToDouble(firstNumber);
                 decimal second = ConvertToDouble(secondNumber);
                 var subtraction = fist - second;
                 return Ok(subtraction.ToString());
             }
             return BadRequest("Invalid input");
         }
-        public ActionResult Mutiplication(string fistNumber, string secondNumber)
+        [HttpGet("mutiplication/{firstNumber}/{secondNumber}")]
+        public IActionResult Mutiplication(string firstNumber, string secondNumber)
         {
-            if (IsNumeric(fistNumber) && IsNumeric(secondNumber))
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                decimal fist = ConvertToDouble(fistNumber);
+                decimal fist = ConvertToDouble(firstNumber);
                 decimal second = ConvertToDouble(secondNumber);
                 var mutiplication = fist * second;
                 return Ok(mutiplication.ToString());
             }
             return BadRequest("Invalid input");
         }
-        public ActionResult Division(string fistNumber, string secondNumber)
+        [HttpGet("division/{firstNumber}/{secondNumber}")]
+        public IActionResult Division(string firstNumber, string secondNumber)
         {
-            if (IsNumeric(fistNumber) && IsNumeric(secondNumber))
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                decimal fist = ConvertToDouble(fistNumber);
+                decimal fist = ConvertToDouble(firstNumber);
                 decimal second = ConvertToDouble(secondNumber);
                 var division = fist / second;
                 return Ok(division.ToString());
             }
             return BadRequest("Invalid input");
         }
-        public ActionResult Mean(string fistNumber, string secondNumber)
+        [HttpGet("mean/{firstNumber}/{secondNumber}")]
+        public IActionResult Mean(string firstNumber, string secondNumber)
         {
-            if (IsNumeric(fistNumber) && IsNumeric(secondNumber))
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                decimal fist = ConvertToDouble(fistNumber);
+                decimal fist = ConvertToDouble(firstNumber);
                 decimal second = ConvertToDouble(secondNumber);
-                var division = fist / second/2;
+                var division = (fist + second)/2;
                 return Ok(division.ToString());
             }
             return BadRequest("Invalid input");
         }
-        public ActionResult Square(string fistNumber, string secondNumber)
+        [HttpGet("square-root/{number}")]
+        public IActionResult SquareRoot(string number)
         {
-            if (IsNumeric(fistNumber) && IsNumeric(secondNumber))
+            if (IsNumeric(number))
             {
-                double fist = double.Parse(fistNumber);
-                double second = double.Parse(secondNumber);
-                var fistScare = Math.Sqrt(fist);
-                var secondScare = Math.Sqrt(second);
-                return Ok(fistScare.ToString());
-                return Ok(secondScare.ToString());
+                double square = double.Parse(number);
+                var squareRoot = Math.Sqrt(square);
+                return Ok(squareRoot.ToString());
             }
             return BadRequest("Invalid input");
         }
